@@ -1,0 +1,1480 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/18/2017 3:50:44 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MXPUEWN3I475006"
+  DTS:CreatorName="PHX-DC\fergarciav"
+  DTS:DTSID="{52AB0A2B-60A3-4779-BD79-831E157470A3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.98"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="ImportPO"
+  DTS:PackageType="5"
+  DTS:VersionBuild="78"
+  DTS:VersionGUID="{1D1FEC94-9722-4746-92DC-4A4A9C7E6DA7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Conexion Archivo]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{D9F0EB1C-7A72-4DB2-A5C9-03468D776CE9}"
+      DTS:ObjectName="Conexion Archivo">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=tcp:dhlservers.database.windows.net,1433;User ID=admin_develop;Initial Catalog=DHL_SC;Persist Security Info=True;Application Name=SSIS-Package-{D9F0EB1C-7A72-4DB2-A5C9-03468D776CE9}tcp:dhlservers.database.windows.net,1433.DHL_SC.admin_develop;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7FuGYpdNc0KuJtQyMWFdtgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACgBbqZjMLbJeiqLDuxK2y1AAAAAASAAACgAAAAEAAAANcnHZZXKR/SXy0rig1bQlAgAAAA8VtVSUI9I9APyZHB0ix1yKDEinBUXstVKNpaMtKPe1sUAAAAjEt3CdCwxlURNglPYZmvRPHhCCs</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Conexion Borrado]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D1424F53-1780-4D28-965A-569C31CC3793}"
+      DTS:ObjectName="Conexion Borrado">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=tcp:dhlservers.database.windows.net,1433;User ID=admin_develop;Initial Catalog=DHL_SC;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7FuGYpdNc0KuJtQyMWFdtgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABFT2kq4Zgds3uGFo0bPUg8AAAAAASAAACgAAAAEAAAAK5ooKUGmbBzQi8Y+8i6KZMgAAAAU8yKoiAV3qGNKFkwIJxFuGPxERAPAAqve5tztoTjxNIUAAAAbqRDVTn7NEHwxI5gJQ0pTswkXn0</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MXPUEWN3I475006.DHL_SC.develop_dhl]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{2056B1C9-DA07-4BF3-8E39-A6316D306B57}"
+      DTS:ObjectName="MXPUEWN3I475006.DHL_SC.develop_dhl">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=MXPUEWN3I475006;User ID=develop_dhl;Initial Catalog=DHL_SC;Persist Security Info=True;Application Name=SSIS-ImportPO-{2056B1C9-DA07-4BF3-8E39-A6316D306B57}MXPUEWN3I475006.DHL_SC.develop_dhl;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7FuGYpdNc0KuJtQyMWFdtgAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABdJTf1lbImmUWYjA3oH8cnAAAAAASAAACgAAAAEAAAAACggTTmd+M2f3JrSbz1hIMYAAAAThucTVPOiNV7IicInqGYg6/Y+EPo9c9lFAAAAA6So3R71aw1HVg+/YOvJfAieA41</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PO Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{9F20E3DD-D1E2-4404-B694-0F791CA2BE2E}"
+      DTS:ObjectName="PO Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Archivo ILO\Export SAP.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{10EC586C-4532-494C-BC39-DAD75060C8EC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D9F0EB1C-7A72-4DB2-A5C9-03468D776CE9}"
+          SQLTask:SqlStatementSource="delete from tbl_raReq_ilo where fec_upload &lt; dateadd(month,-2,getdate())&#xA;delete from tbl_raPO_ilo where fec_upload &lt; dateadd(month,-2,getdate())&#xA;delete from tbl_raTran_ilo where fec_upload &lt; dateadd(month,-2,getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Importar Archivo"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F5C09E2F-9B19-4093-B5F1-52B142872611}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Importar Archivo"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Importar Archivo\Archivo PO"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Archivo PO"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'Orden de Compra$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Importar Archivo\Archivo PO.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PO Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[PO Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Plant]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Plant]"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Plant]"
+                      name="Plant"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Material]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Material]"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Material]"
+                      name="Material"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Currency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Currency]"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Currency]"
+                      name="Currency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Incoterms]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Incoterms]"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Incoterms]"
+                      name="Incoterms"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Order_Unit]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Order_Unit]"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Order_Unit]"
+                      name="Order_Unit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Vendor_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Vendor_name]"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Vendor_name]"
+                      name="Vendor_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Terms_Pay]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Terms_Pay]"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Terms_Pay]"
+                      name="Terms_Pay"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Qty_Delivered]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Qty_Delivered]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Qty_Delivered]"
+                      name="Qty_Delivered"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Created_by]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Created_by]"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Created_by]"
+                      name="Created_by"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Delivery_Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Delivery_Date]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Delivery_Date]"
+                      name="Delivery_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Purchasing_Doc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Purchasing_Doc]"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Purchasing_Doc]"
+                      name="Purchasing_Doc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Short_Text]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Short_Text]"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Short_Text]"
+                      name="Short_Text"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Material_Group]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Material_Group]"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Material_Group]"
+                      name="Material_Group"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Order_Qty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Order_Qty]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Order_Qty]"
+                      name="Order_Qty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Notified_Qty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Notified_Qty]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Notified_Qty]"
+                      name="Notified_Qty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Qty_Released]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Qty_Released]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Qty_Released]"
+                      name="Qty_Released"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[QuantitySKU]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[QuantitySKU]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[QuantitySKU]"
+                      name="QuantitySKU"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Plant]"
+                      dataType="wstr"
+                      length="255"
+                      name="Plant" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Material]"
+                      dataType="wstr"
+                      length="255"
+                      name="Material" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Currency]"
+                      dataType="wstr"
+                      length="255"
+                      name="Currency" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Incoterms]"
+                      dataType="wstr"
+                      length="255"
+                      name="Incoterms" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Order_Unit]"
+                      dataType="wstr"
+                      length="255"
+                      name="Order_Unit" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Vendor_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="Vendor_name" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Terms_Pay]"
+                      dataType="wstr"
+                      length="255"
+                      name="Terms_Pay" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Qty_Delivered]"
+                      dataType="r8"
+                      name="Qty_Delivered" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Created_by]"
+                      dataType="wstr"
+                      length="255"
+                      name="Created_by" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Delivery_Date]"
+                      dataType="date"
+                      name="Delivery_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Purchasing_Doc]"
+                      dataType="wstr"
+                      length="255"
+                      name="Purchasing_Doc" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Short_Text]"
+                      dataType="wstr"
+                      length="255"
+                      name="Short_Text" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Material_Group]"
+                      dataType="wstr"
+                      length="255"
+                      name="Material_Group" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Order_Qty]"
+                      dataType="r8"
+                      name="Order_Qty" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Notified_Qty]"
+                      dataType="r8"
+                      name="Notified_Qty" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[Qty_Released]"
+                      dataType="r8"
+                      name="Qty_Released" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].ExternalColumns[QuantitySKU]"
+                      dataType="r8"
+                      name="QuantitySKU" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Plant]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Plant]"
+                      name="Plant" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Material]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Material]"
+                      name="Material" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Order_Unit]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Order_Unit]"
+                      name="Order_Unit" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Vendor_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Vendor_name]"
+                      name="Vendor_name" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Currency]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Currency]"
+                      name="Currency" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Incoterms]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Incoterms]"
+                      name="Incoterms" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Terms_Pay]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Terms_Pay]"
+                      name="Terms_Pay" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[QuantitySKU]"
+                      dataType="r8"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[QuantitySKU]"
+                      name="QuantitySKU" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Qty_Delivered]"
+                      dataType="r8"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Qty_Delivered]"
+                      name="Qty_Delivered" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Created_by]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Created_by]"
+                      name="Created_by" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Delivery_Date]"
+                      dataType="date"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Delivery_Date]"
+                      name="Delivery_Date" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Purchasing_Doc]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Purchasing_Doc]"
+                      name="Purchasing_Doc" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Short_Text]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Short_Text]"
+                      name="Short_Text" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Material_Group]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Material_Group]"
+                      name="Material_Group" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Order_Qty]"
+                      dataType="r8"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Order_Qty]"
+                      name="Order_Qty" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Notified_Qty]"
+                      dataType="r8"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Notified_Qty]"
+                      name="Notified_Qty" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Qty_Released]"
+                      dataType="r8"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[Qty_Released]"
+                      name="Qty_Released" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Importar Archivo\Fec_Upload &amp; ID"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Fec_Upload &amp; ID"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Plant]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Plant"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Plant]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Plant]},"")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Plant,"")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Material]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Material"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Material]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Material]},"")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Material,"")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Currency]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Currency"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Currency]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Currency]},"")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Currency,"")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Incoterms]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Incoterms"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Incoterms]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Incoterms]},"")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Incoterms,"")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Order_Unit]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Order_Unit"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Order_Unit]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Order_Unit]},"")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Order_Unit,"")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Vendor_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Vendor_name"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Vendor_name]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Vendor_name]},"")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Vendor_name,"")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Terms_Pay]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Terms_Pay"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Terms_Pay]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Terms_Pay]},"")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Terms_Pay,"")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Qty_Delivered]"
+                      cachedDataType="r8"
+                      cachedName="Qty_Delivered"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Qty_Delivered]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Qty_Delivered]},0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Qty_Delivered,0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Created_by]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Created_by"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Created_by]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Created_by]},"")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Created_by,"")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Delivery_Date]"
+                      cachedDataType="date"
+                      cachedName="Delivery_Date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Delivery_Date]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Delivery_Date]},[GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Delivery_Date,GETDATE())</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Purchasing_Doc]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Purchasing_Doc"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Purchasing_Doc]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Purchasing_Doc]},"")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Purchasing_Doc,"")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Short_Text]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Short_Text"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Short_Text]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Short_Text]},"")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Short_Text,"")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Material_Group]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Material_Group"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Material_Group]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Material_Group]},"")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Material_Group,"")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Order_Qty]"
+                      cachedDataType="r8"
+                      cachedName="Order_Qty"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Order_Qty]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Order_Qty]},0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Order_Qty,0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Notified_Qty]"
+                      cachedDataType="r8"
+                      cachedName="Notified_Qty"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Notified_Qty]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Notified_Qty]},0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Notified_Qty,0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[Qty_Released]"
+                      cachedDataType="r8"
+                      cachedName="Qty_Released"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Qty_Released]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Qty_Released]},0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Qty_Released,0)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input].Columns[QuantitySKU]"
+                      cachedDataType="r8"
+                      cachedName="QuantitySKU"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[QuantitySKU]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[QuantitySKU]},0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(QuantitySKU,0)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Output].Columns[fec_upload]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Output].Columns[fec_upload]"
+                      name="fec_upload"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Output].Columns[ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1024"
+                      lineageId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL]([TRIM]([SUBSTRING](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Vendor_name]},1,[FINDSTRING](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Vendor_name]}," ",1) + 2)) + "/" + [TRIM](#{Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Material]}),"N/A")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(TRIM(SUBSTRING(Vendor_name,1,FINDSTRING(Vendor_name," ",1) + 2)) + "/" + TRIM(Material),"N/A")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Importar Archivo\tbl_raPO_ilo"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="tbl_raPO_ilo"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."tbl_raPO_ilo"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Importar Archivo\tbl_raPO_ilo.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MXPUEWN3I475006.DHL_SC.develop_dhl]"
+                  connectionManagerRefId="Package.ConnectionManagers[MXPUEWN3I475006.DHL_SC.develop_dhl]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Plant]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Plant"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[Plant]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Plant]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Material]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Material"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[material]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Material]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Currency]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Currency"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[currency]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Currency]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Incoterms]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Incoterms"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[incoterms]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Incoterms]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Order_Unit]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Order_Unit"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[order_unit]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Order_Unit]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Vendor_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Vendor_name"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[vendor_name]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Vendor_name]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Terms_Pay]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Terms_Pay"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[terms_pay]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Terms_Pay]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Qty_Delivered]"
+                      cachedDataType="r8"
+                      cachedName="Qty_Delivered"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[qty_delivered]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Qty_Delivered]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Created_by]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Created_by"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[created_by]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Created_by]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Delivery_Date]"
+                      cachedDataType="date"
+                      cachedName="Delivery_Date"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[delivery_date]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Delivery_Date]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Purchasing_Doc]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Purchasing_Doc"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[purchasing_Doc]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Purchasing_Doc]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Short_Text]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Short_Text"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[short_Text]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Short_Text]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Material_Group]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Material_Group"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[material_group]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Material_Group]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Order_Qty]"
+                      cachedDataType="r8"
+                      cachedName="Order_Qty"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[order_qty]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Order_Qty]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Notified_Qty]"
+                      cachedDataType="r8"
+                      cachedName="Notified_Qty"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[notified_qty]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Notified_Qty]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[Qty_Released]"
+                      cachedDataType="r8"
+                      cachedName="Qty_Released"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[qty_released]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[Qty_Released]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[QuantitySKU]"
+                      cachedDataType="r8"
+                      cachedName="QuantitySKU"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[quantitySKU]"
+                      lineageId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output].Columns[QuantitySKU]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[fec_upload]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fec_upload"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[fec_upload]"
+                      lineageId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Output].Columns[fec_upload]" />
+                    <inputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].Columns[ID]"
+                      cachedDataType="wstr"
+                      cachedLength="1024"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[ID]"
+                      lineageId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Output].Columns[ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[ID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[Plant]"
+                      dataType="wstr"
+                      length="255"
+                      name="Plant" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[material]"
+                      dataType="wstr"
+                      length="255"
+                      name="material" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[currency]"
+                      dataType="wstr"
+                      length="255"
+                      name="currency" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[incoterms]"
+                      dataType="wstr"
+                      length="255"
+                      name="incoterms" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[order_unit]"
+                      dataType="wstr"
+                      length="255"
+                      name="order_unit" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[vendor_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="vendor_name" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[terms_pay]"
+                      dataType="wstr"
+                      length="255"
+                      name="terms_pay" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[qty_delivered]"
+                      dataType="r8"
+                      name="qty_delivered" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[created_by]"
+                      dataType="wstr"
+                      length="255"
+                      name="created_by" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[delivery_date]"
+                      dataType="dbTimeStamp"
+                      name="delivery_date" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[purchasing_Doc]"
+                      dataType="wstr"
+                      length="255"
+                      name="purchasing_Doc" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[short_Text]"
+                      dataType="wstr"
+                      length="255"
+                      name="short_Text" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[material_group]"
+                      dataType="wstr"
+                      length="255"
+                      name="material_group" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[order_qty]"
+                      dataType="r8"
+                      name="order_qty" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[notified_qty]"
+                      dataType="r8"
+                      name="notified_qty" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[qty_released]"
+                      dataType="r8"
+                      name="qty_released" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[quantitySKU]"
+                      dataType="r8"
+                      name="quantitySKU" />
+                    <externalMetadataColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input].ExternalColumns[fec_upload]"
+                      dataType="dbTimeStamp"
+                      name="fec_upload" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Importar Archivo\tbl_raPO_ilo.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Importar Archivo\tbl_raPO_ilo.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Importar Archivo\tbl_raPO_ilo.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Importar Archivo\tbl_raPO_ilo.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Importar Archivo.Paths[Derived Column Output]"
+              endId="Package\Importar Archivo\tbl_raPO_ilo.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Importar Archivo\Fec_Upload &amp; ID.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Importar Archivo.Paths[Excel Source Output]"
+              endId="Package\Importar Archivo\Fec_Upload &amp; ID.Inputs[Derived Column Input]"
+              name="Excel Source Output"
+              startId="Package\Importar Archivo\Archivo PO.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C2E2F772-6B32-4434-A07E-F5ADC62887BF}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Importar Archivo" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="45,45" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Importar Archivo"
+          TopLeft="47,169" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="126.25,87">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,82"
+              Start="0,0"
+              End="0,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Importar Archivo">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Importar Archivo\Fec_Upload &amp; ID"
+          TopLeft="8,94" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Importar Archivo\Archivo PO"
+          TopLeft="22,6" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Importar Archivo\tbl_raPO_ilo"
+          TopLeft="19,190" />
+        <EdgeLayout
+          Id="Package\Importar Archivo.Paths[Excel Source Output]"
+          TopLeft="87.25,48">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Importar Archivo.Paths[Derived Column Output]"
+          TopLeft="87.25,136">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Importar Archivo\Archivo PO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Importar Archivo\tbl_raPO_ilo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
